@@ -1,0 +1,202 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url("https://www.transparenttextures.com/patterns/cubes.png") repeat;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app {
+  text-align: center;
+  padding: 2rem;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
+  min-height: 100vh;
+}
+
+/* Title animation */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+/* Buttons */
+button {
+  padding: 0.6rem 1.2rem;
+  margin: 0.4rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  animation: fadeInUp 0.4s ease-in;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button.active {
+  background-color: #28a745;
+}
+
+/* Quiz and result boxes */
+.quiz-box,
+.result {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Dark mode */
+.app.dark {
+  background-color: #121212;
+  background-image: linear-gradient(145deg, #1c1c1c, #222);
+  color: #f0f0f0;
+}
+
+.app.dark .quiz-box,
+.app.dark .result {
+  background-color: #1e1e1e;
+}
+
+.app.dark button {
+  background-color: #444;
+}
+
+.app.dark button:hover {
+  background-color: #666;
+}
+
+/* Vibrant mode (optional if you want to toggle themes) */
+.app.vibrant {
+  background-image: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+}
+
+.app.vibrant .quiz-box,
+.app.vibrant .result {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+.app.vibrant button {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: 1px solid white;
+}
+
+.app.vibrant button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Timer */
+.timer {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #dc3545;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+.question {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.options button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem auto;
+}
+
+.score {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Leaderboard */
+.result ul {
+  list-style: none;
+  padding: 0;
+}
+
+.result li {
+  background: #e9ecef;
+  margin: 0.3rem 0;
+  padding: 0.6rem;
+  border-radius: 6px;
+}
+
+.app.dark .result li {
+  background: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .quiz-box,
+  .result {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .question {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
